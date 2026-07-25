@@ -30,27 +30,17 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <!-- Apply JetBrains Mono to code blocks and headings -->
   <style>
-    /* Apply JetBrains Mono to all code blocks and inline code */
-    code,
-    pre,
-    kbd,
-    tt {
+    /* Apply JetBrains Mono to code blocks and headings */
+    code, pre, kbd, tt {
       font-family: 'JetBrains Mono', 'Courier New', monospace !important;
     }
 
-    /* Optional: Make headings slightly more distinct while keeping code mono */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
+    h1, h2, h3, h4, h5 {
       font-family: 'JetBrains Mono', 'Courier New', monospace !important;
       font-weight: 700 !important;
     }
 
-    /* Ensure headings still look like headings (e.g., proper spacing) */
     h1 {
       font-size: 2.5em;
       margin-top: 2rem;
@@ -63,21 +53,16 @@
       margin-bottom: 0.8rem;
     }
 
-    /* A bit of extra spacing for code blocks to make them stand out */
     pre {
       padding: 1rem;
       border-radius: 6px;
       background-color: rgba(0, 0, 0, 0.08);
-      /* Subtle background */
     }
 
-    /* Match the existing dark/light theme styling */
     .dark pre {
       background-color: rgba(0, 0, 0, 0.2);
     }
 
-<<<<<<< HEAD
-=======
     /* Pin navbar to top-right corner when scrolling */
     .app-nav {
       position: fixed !important;
@@ -95,7 +80,7 @@
       padding: 0 !important;
     }
 
-    /* Move Sidebar Toggle Button to the top-left */
+    /* Move Sidebar Toggle Button to top-left with search bar spacing */
     .sidebar-toggle,
     .sidebar-toggle-button {
       top: 16px !important;
@@ -105,7 +90,6 @@
       z-index: 101 !important;
     }
 
-    /* Add space between top sidebar toggle and search input */
     .search {
       margin-top: 36px !important;
       padding: 10px 15px !important;
@@ -150,9 +134,27 @@
       line-height: 1 !important;
     }
 
->>>>>>> 3d16d52 (style: refactor navbar layout and styling with custom theme toggle integration)
-    /* Navbar Dropdown styling (Dark Mode Default) */
-    .app-nav li ul {
+    /* Navbar Dropdown Base Item Styling */
+    .app-nav li ul li {
+      margin: 4px 0 !important;
+      background: transparent !important;
+    }
+
+    .app-nav li ul li a {
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      padding: 6px 10px !important;
+      border-radius: 6px !important;
+      display: block !important;
+      text-decoration: none !important;
+      background: transparent !important;
+    }
+
+    /* Dark Mode Dropdown Popup Background */
+    body.theme-is-dark .app-nav li ul,
+    body.dark .app-nav li ul,
+    body[data-theme="dark"] .app-nav li ul,
+    body:not(.theme-is-light) .app-nav li ul {
       background-color: #1e222b !important;
       background: #1e222b !important;
       border: 1px solid #333842 !important;
@@ -163,114 +165,39 @@
       text-align: center !important;
     }
 
-    .app-nav li ul li {
-      margin: 4px 0 !important;
-      background: transparent !important;
-    }
-
-    .app-nav li ul li a {
+    body.theme-is-dark .app-nav li ul li a,
+    body.dark .app-nav li ul li a {
       color: #ffffff !important;
-      font-size: 1.25rem !important;
-      font-weight: bold !important;
-      padding: 6px 10px !important;
-      border-radius: 6px !important;
-      display: block !important;
-      text-decoration: none !important;
-      background: transparent !important;
     }
 
-    .app-nav li ul li a:hover {
+    body.theme-is-dark .app-nav li ul li a:hover,
+    body.dark .app-nav li ul li a:hover {
       background-color: rgba(247, 147, 26, 0.25) !important;
-<<<<<<< HEAD
       color: #ffffff !important;
     }
 
-    /* Light Mode Dropdown Styling Override */
+    /* Light Mode Dropdown Popup Background */
+    body.theme-is-light .app-nav li ul,
     body.light .app-nav li ul,
     body[data-theme="light"] .app-nav li ul {
       background-color: #ffffff !important;
       background: #ffffff !important;
       border: 1px solid #cbd5e1 !important;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+      border-radius: 8px !important;
+      padding: 6px 8px !important;
+      min-width: 50px !important;
+      text-align: center !important;
     }
 
-    body.light .app-nav li ul li a,
-    body[data-theme="light"] .app-nav li ul li a {
+    body.theme-is-light .app-nav li ul li a,
+    body.light .app-nav li ul li a {
       color: #1e293b !important;
     }
 
-    /* Pin navbar to top-right corner when scrolling (like Octocat) */
-    .app-nav {
-      position: fixed !important;
-      top: 25px !important;
-      right: 80px !important;
-      z-index: 99 !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-
-    .app-nav > ul {
-      display: flex !important;
-      align-items: center !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
-    /* Modern Theme Toggle inside Navbar */
-    #docsify-darklight-theme {
-      position: relative !important;
-      top: auto !important;
-      right: auto !important;
-      left: auto !important;
-      bottom: auto !important;
-      width: 32px !important;
-      height: 32px !important;
-      margin: 0 8px 0 0 !important;
-      border-radius: 50% !important;
-      background: rgba(247, 147, 26, 0.12) !important;
-      border: 1px solid rgba(247, 147, 26, 0.35) !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      cursor: pointer !important;
-      box-sizing: border-box !important;
-    }
-
-    #docsify-darklight-theme:hover {
-      transform: scale(1.1) rotate(15deg) !important;
-      background: rgba(247, 147, 26, 0.25) !important;
-      border-color: #f7931a !important;
-      box-shadow: 0 0 12px rgba(247, 147, 26, 0.4) !important;
-    }
-
-    /* Move Sidebar Toggle Button to the top of the page */
-    .sidebar-toggle,
-    .sidebar-toggle-button {
-      top: 18px !important;
-      bottom: auto !important;
-      position: fixed !important;
-      z-index: 101 !important;
-    }
-
-    body:not(.dark) .app-nav li ul li a:hover {
-      background-color: #f7931a !important;
-=======
->>>>>>> 3d16d52 (style: refactor navbar layout and styling with custom theme toggle integration)
-      color: #ffffff !important;
-    }
-
-    /* Light Mode Dropdown Styling Override */
-    body.light .app-nav li ul,
-    body[data-theme="light"] .app-nav li ul {
-      background-color: #ffffff !important;
-      background: #ffffff !important;
-      border: 1px solid #cbd5e1 !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
-    }
-
-    body.light .app-nav li ul li a,
-    body[data-theme="light"] .app-nav li ul li a {
+    body.theme-is-light .app-nav li ul li a:hover,
+    body.light .app-nav li ul li a:hover {
+      background-color: rgba(247, 147, 26, 0.2) !important;
       color: #1e293b !important;
     }
   </style>
@@ -319,7 +246,7 @@
         }
       },
 
-      // 2. Custom Footer Hook (Injects layout at the bottom of every page)
+      // 2. Custom Hooks
       plugins: [
         function (hook) {
           var footer = [
@@ -336,7 +263,7 @@
             return html + footer;
           });
 
-          // Move Theme Toggle directly into Navbar
+          // Theme sync & Navbar toggle integration
           hook.doneEach(function () {
             var toggle = document.querySelector('#docsify-darklight-theme');
             var navUl = document.querySelector('.app-nav > ul');
@@ -350,6 +277,31 @@
                 li.appendChild(toggle);
                 navUl.insertBefore(li, navUl.firstChild);
               }
+            }
+
+            var sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+            var moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#091a28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+
+            function syncThemeState() {
+              var theme = localStorage.getItem('DARK_LIGHT_THEME') || 'dark';
+              var toggleBtn = document.querySelector('#docsify-darklight-theme');
+              if (theme === 'light') {
+                document.body.classList.add('theme-is-light');
+                document.body.classList.remove('theme-is-dark');
+                if (toggleBtn) toggleBtn.innerHTML = moonIcon;
+              } else {
+                document.body.classList.add('theme-is-dark');
+                document.body.classList.remove('theme-is-light');
+                if (toggleBtn) toggleBtn.innerHTML = sunIcon;
+              }
+            }
+
+            syncThemeState();
+
+            if (toggle) {
+              toggle.onclick = function () {
+                setTimeout(syncThemeState, 50);
+              };
             }
           });
         }
