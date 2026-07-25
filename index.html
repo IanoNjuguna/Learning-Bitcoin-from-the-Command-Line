@@ -63,24 +63,7 @@
       background-color: rgba(0, 0, 0, 0.2);
     }
 
-    /* Pin navbar to top-right corner when scrolling */
-    .app-nav {
-      position: fixed !important;
-      top: 20px !important;
-      right: 80px !important;
-      z-index: 99 !important;
-      display: flex !important;
-      align-items: center !important;
-    }
-
-    .app-nav > ul {
-      display: flex !important;
-      align-items: center !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
-    /* Move Sidebar Toggle Button to top-left with search bar spacing */
+    /* 1. Sidebar Toggle Button */
     .sidebar-toggle,
     .sidebar-toggle-button {
       top: 16px !important;
@@ -90,48 +73,112 @@
       z-index: 101 !important;
     }
 
-    .search {
-      margin-top: 36px !important;
-      padding: 10px 15px !important;
-    }
-
-    /* Modern Theme Toggle inside Navbar */
+    /* 2. Theme Toggle (Positioned inside sidebar near right boundary) */
     #docsify-darklight-theme {
-      position: relative !important;
-      top: auto !important;
+      position: fixed !important;
+      top: 14px !important;
+      left: 175px !important;
       right: auto !important;
-      left: auto !important;
       bottom: auto !important;
+      z-index: 101 !important;
       width: 32px !important;
       height: 32px !important;
-      margin: 0 10px 0 0 !important;
+      margin: 0 !important;
       border-radius: 50% !important;
-      background: rgba(247, 147, 26, 0.15) !important;
-      border: 1px solid rgba(247, 147, 26, 0.4) !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      transition: all 0.2s ease-in-out !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
       cursor: pointer !important;
       box-sizing: border-box !important;
+      box-shadow: none !important;
     }
 
     #docsify-darklight-theme:hover {
-      transform: scale(1.1) rotate(15deg) !important;
-      background: rgba(247, 147, 26, 0.3) !important;
-      border-color: #f7931a !important;
-      box-shadow: 0 0 10px rgba(247, 147, 26, 0.5) !important;
+      transform: scale(1.15) !important;
+      background: rgba(247, 147, 26, 0.15) !important;
+      border-color: rgba(247, 147, 26, 0.4) !important;
+      box-shadow: none !important;
     }
 
-    #docsify-darklight-theme p,
-    #docsify-darklight-theme span,
-    #docsify-darklight-theme svg {
-      color: #f7931a !important;
-      fill: #f7931a !important;
+    /* 3. Language Selector Navbar (Contained cleanly inside right sidebar boundary) */
+    .app-nav {
+      position: fixed !important;
+      top: 14px !important;
+      left: 220px !important;
+      right: auto !important;
+      z-index: 101 !important;
+      display: flex !important;
+      align-items: center !important;
       margin: 0 !important;
       padding: 0 !important;
-      font-size: 15px !important;
-      line-height: 1 !important;
+    }
+
+    .app-nav > ul > li {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      cursor: pointer !important;
+    }
+
+    .app-nav > ul > li:hover {
+      transform: scale(1.15) !important;
+    }
+
+    .app-nav img {
+      width: 32px !important;
+      height: 22px !important;
+      object-fit: cover !important;
+      border-radius: 3px !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25) !important;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+
+    .app-nav img:hover {
+      transform: scale(1.15) !important;
+    }
+
+    /* Hide tools when sidebar is collapsed */
+    body.close #docsify-darklight-theme,
+    body.close .app-nav {
+      display: none !important;
+    }
+
+    .app-nav > ul {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* 4. Search input spacing below the top toolbar controls */
+    .search {
+      margin-top: 55px !important;
+      padding: 10px 15px !important;
+    }
+
+    /* Moon & Sun SVG Icon Styling */
+    #docsify-darklight-theme svg {
+      width: 18px !important;
+      height: 18px !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+
+    body.theme-is-light #docsify-darklight-theme svg,
+    body.light #docsify-darklight-theme svg {
+      stroke: #091a28 !important;
+      fill: none !important;
+    }
+
+    body.theme-is-dark #docsify-darklight-theme svg,
+    body.dark #docsify-darklight-theme svg {
+      stroke: #f7931a !important;
+      fill: none !important;
     }
 
     /* Navbar Dropdown Base Item Styling */
@@ -150,7 +197,16 @@
       background: transparent !important;
     }
 
-    /* Dark Mode Dropdown Popup Background */
+    /* Dark Mode Dropdown Popup Background & Click-to-Open Display */
+    .app-nav li > ul,
+    .app-nav li:hover > ul {
+      display: none !important;
+    }
+
+    .app-nav li.open > ul {
+      display: block !important;
+    }
+
     body.theme-is-dark .app-nav li ul,
     body.dark .app-nav li ul,
     body[data-theme="dark"] .app-nav li ul,
@@ -163,6 +219,8 @@
       padding: 6px 8px !important;
       min-width: 50px !important;
       text-align: center !important;
+      right: 0 !important;
+      left: auto !important;
     }
 
     body.theme-is-dark .app-nav li ul li a,
@@ -188,6 +246,8 @@
       padding: 6px 8px !important;
       min-width: 50px !important;
       text-align: center !important;
+      right: 0 !important;
+      left: auto !important;
     }
 
     body.theme-is-light .app-nav li ul li a,
@@ -229,7 +289,7 @@
       // Dark/Light Theme Settings
       darklightTheme: {
         siteFont: "Source Sans Pro, Helvetica Neue, Arial, sans-serif",
-        defaultTheme: 'dark',
+        defaultTheme: 'light',
         codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
         bodyFontSize: '15px',
         dark: {
@@ -263,27 +323,13 @@
             return html + footer;
           });
 
-          // Theme sync & Navbar toggle integration
+          // Theme sync hook
           hook.doneEach(function () {
-            var toggle = document.querySelector('#docsify-darklight-theme');
-            var navUl = document.querySelector('.app-nav > ul');
-            if (toggle && navUl) {
-              if (!toggle.parentElement.classList.contains('theme-toggle-wrapper')) {
-                var li = document.createElement('li');
-                li.className = 'theme-toggle-wrapper';
-                li.style.display = 'inline-flex';
-                li.style.alignItems = 'center';
-                li.style.marginRight = '12px';
-                li.appendChild(toggle);
-                navUl.insertBefore(li, navUl.firstChild);
-              }
-            }
-
             var sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
             var moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#091a28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
             function syncThemeState() {
-              var theme = localStorage.getItem('DARK_LIGHT_THEME') || 'dark';
+              var theme = localStorage.getItem('DARK_LIGHT_THEME') || 'light';
               var toggleBtn = document.querySelector('#docsify-darklight-theme');
               if (theme === 'light') {
                 document.body.classList.add('theme-is-light');
@@ -298,15 +344,38 @@
 
             syncThemeState();
 
-            if (toggle) {
-              toggle.onclick = function () {
-                setTimeout(syncThemeState, 50);
-              };
+            var toggleBtn = document.querySelector('#docsify-darklight-theme');
+            if (toggleBtn) {
+              toggleBtn.addEventListener('click', function () {
+                setTimeout(syncThemeState, 20);
+                setTimeout(syncThemeState, 150);
+              });
             }
           });
         }
       ]
     }
+
+    // Global Delegated Click Handler for Language Dropdown
+    document.addEventListener('click', function (e) {
+      var nav = e.target.closest('.app-nav');
+      if (nav) {
+        var topLi = e.target.closest('.app-nav > ul > li');
+        var isSubMenuLink = e.target.closest('.app-nav li ul');
+        if (topLi && !isSubMenuLink) {
+          e.preventDefault();
+          e.stopPropagation();
+          topLi.classList.toggle('open');
+          return;
+        }
+      }
+
+      // Close dropdown when clicking outside
+      var openLis = document.querySelectorAll('.app-nav li.open');
+      openLis.forEach(function (li) {
+        li.classList.remove('open');
+      });
+    });
   </script>
 
   <!-- Docsify Core -->
