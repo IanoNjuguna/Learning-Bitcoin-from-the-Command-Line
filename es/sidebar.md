@@ -1,10 +1,5 @@
 <!-- es/sidebar.md -->
 
-* **🌐 Idioma / Language**
-  * [🇺🇸 English](README.md)
-  * [🇪🇸 Español](es/README.md)
-  * [🇵🇹 Português](pt/README.md)
-
 * **Inicio**
   * [01.0 Introducción](es/01_0_Introduccion.md)
   * [01.1 Introduciendo Bitcoin](es/01_1_Introduciendo_Bitcoin.md)

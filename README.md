@@ -17,8 +17,8 @@ _You may also be interested in our newer [Learning FROST from the Command Line c
 
 ## Translations
 
-* [Portuguese](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/tree/portuguese-translation/pt/README.md) — v2.0.1 translation
-* [Spanish](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/tree/spanish-translation/es/README.md) - v2.0.1 translation
+* [Portuguese](pt/README.md) — v2.0.1 translation
+* [Spanish](es/README.md) — v2.0.1 translation
 
 If you'd like to make your own translation, please see [Contributing](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/tree/master#contributing), below.
 

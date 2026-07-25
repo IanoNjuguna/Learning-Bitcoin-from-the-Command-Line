@@ -12,8 +12,8 @@ Este tutorial asume que usted tiene algunos conocimientos previos mínimos sobre
 
 ## Traducciones
 
-* [Inglés](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line) - versión original
-* [Portugués](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/tree/portuguese-translation/pt) - en proceso
+* [Inglés](README.md) - versión original
+* [Portugués](pt/README.md) - versión 2.0.1
 
 Si le gustaría hacer su propia traducción, por favor, vea [Contribuyendo](#contribuyendo), abajo.
 
