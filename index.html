@@ -75,6 +75,51 @@
     .dark pre {
       background-color: rgba(0, 0, 0, 0.2);
     }
+
+    /* Navbar Dropdown contrast fixes for Light and Dark modes */
+    .app-nav li ul {
+      background-color: #1e222b !important;
+      border: 1px solid #333842 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+      border-radius: 6px !important;
+      padding: 6px 10px !important;
+      min-width: 60px !important;
+      text-align: center !important;
+    }
+
+    .app-nav li ul li {
+      margin: 4px 0 !important;
+    }
+
+    .app-nav li ul li a {
+      color: #ffffff !important;
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      padding: 6px 12px !important;
+      border-radius: 4px !important;
+      display: block !important;
+      text-decoration: none !important;
+    }
+
+    .app-nav li ul li a:hover {
+      background-color: #f7931a !important;
+      color: #111216 !important;
+    }
+
+    body:not(.dark) .app-nav li ul {
+      background-color: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    body:not(.dark) .app-nav li ul li a {
+      color: #1e293b !important;
+    }
+
+    body:not(.dark) .app-nav li ul li a:hover {
+      background-color: #f7931a !important;
+      color: #ffffff !important;
+    }
   </style>
 </head>
 
