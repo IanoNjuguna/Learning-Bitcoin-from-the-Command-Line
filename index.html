@@ -76,44 +76,105 @@
       background-color: rgba(0, 0, 0, 0.2);
     }
 
-    /* Navbar Dropdown contrast fixes for Light and Dark modes */
+    /* Navbar Dropdown styling (Dark Mode Default) */
     .app-nav li ul {
       background-color: #1e222b !important;
+      background: #1e222b !important;
       border: 1px solid #333842 !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
-      border-radius: 6px !important;
-      padding: 6px 10px !important;
-      min-width: 60px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+      border-radius: 8px !important;
+      padding: 6px 8px !important;
+      min-width: 50px !important;
       text-align: center !important;
     }
 
     .app-nav li ul li {
       margin: 4px 0 !important;
+      background: transparent !important;
     }
 
     .app-nav li ul li a {
       color: #ffffff !important;
       font-size: 1.25rem !important;
       font-weight: bold !important;
-      padding: 6px 12px !important;
-      border-radius: 4px !important;
+      padding: 6px 10px !important;
+      border-radius: 6px !important;
       display: block !important;
       text-decoration: none !important;
+      background: transparent !important;
     }
 
     .app-nav li ul li a:hover {
-      background-color: #f7931a !important;
-      color: #111216 !important;
+      background-color: rgba(247, 147, 26, 0.25) !important;
+      color: #ffffff !important;
     }
 
-    body:not(.dark) .app-nav li ul {
+    /* Light Mode Dropdown Styling Override */
+    body.light .app-nav li ul,
+    body[data-theme="light"] .app-nav li ul {
       background-color: #ffffff !important;
+      background: #ffffff !important;
       border: 1px solid #cbd5e1 !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
     }
 
-    body:not(.dark) .app-nav li ul li a {
+    body.light .app-nav li ul li a,
+    body[data-theme="light"] .app-nav li ul li a {
       color: #1e293b !important;
+    }
+
+    /* Pin navbar to top-right corner when scrolling (like Octocat) */
+    .app-nav {
+      position: fixed !important;
+      top: 25px !important;
+      right: 80px !important;
+      z-index: 99 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .app-nav > ul {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Modern Theme Toggle inside Navbar */
+    #docsify-darklight-theme {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 32px !important;
+      height: 32px !important;
+      margin: 0 8px 0 0 !important;
+      border-radius: 50% !important;
+      background: rgba(247, 147, 26, 0.12) !important;
+      border: 1px solid rgba(247, 147, 26, 0.35) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+    }
+
+    #docsify-darklight-theme:hover {
+      transform: scale(1.1) rotate(15deg) !important;
+      background: rgba(247, 147, 26, 0.25) !important;
+      border-color: #f7931a !important;
+      box-shadow: 0 0 12px rgba(247, 147, 26, 0.4) !important;
+    }
+
+    /* Move Sidebar Toggle Button to the top of the page */
+    .sidebar-toggle,
+    .sidebar-toggle-button {
+      top: 18px !important;
+      bottom: auto !important;
+      position: fixed !important;
+      z-index: 101 !important;
     }
 
     body:not(.dark) .app-nav li ul li a:hover {
@@ -181,6 +242,23 @@
 
           hook.afterEach(function (html) {
             return html + footer;
+          });
+
+          // Move Theme Toggle directly into Navbar
+          hook.doneEach(function () {
+            var toggle = document.querySelector('#docsify-darklight-theme');
+            var navUl = document.querySelector('.app-nav > ul');
+            if (toggle && navUl) {
+              if (!toggle.parentElement.classList.contains('theme-toggle-wrapper')) {
+                var li = document.createElement('li');
+                li.className = 'theme-toggle-wrapper';
+                li.style.display = 'inline-flex';
+                li.style.alignItems = 'center';
+                li.style.marginRight = '12px';
+                li.appendChild(toggle);
+                navUl.insertBefore(li, navUl.firstChild);
+              }
+            }
           });
         }
       ]
