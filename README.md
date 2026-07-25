@@ -264,7 +264,7 @@ Thanks to the volunteers who spent extensive time writing and reviewing other-la
 
 #### Spanish Translation
 
- Name | Role | GitHub |
+| Name | Role | GitHub |
 | ---------- | -------- | ------------ |
 | Ian Culp | Translator & Reviewer | [@icculp](https://github.com/icculp) |
 | Maxi Goyheneche | Translator | [@maxcrowar](https://github.com/maxcrowar) |
