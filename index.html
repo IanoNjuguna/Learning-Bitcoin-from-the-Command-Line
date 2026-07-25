@@ -76,6 +76,81 @@
       background-color: rgba(0, 0, 0, 0.2);
     }
 
+<<<<<<< HEAD
+=======
+    /* Pin navbar to top-right corner when scrolling */
+    .app-nav {
+      position: fixed !important;
+      top: 20px !important;
+      right: 80px !important;
+      z-index: 99 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .app-nav > ul {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Move Sidebar Toggle Button to the top-left */
+    .sidebar-toggle,
+    .sidebar-toggle-button {
+      top: 16px !important;
+      bottom: auto !important;
+      left: 16px !important;
+      position: fixed !important;
+      z-index: 101 !important;
+    }
+
+    /* Add space between top sidebar toggle and search input */
+    .search {
+      margin-top: 36px !important;
+      padding: 10px 15px !important;
+    }
+
+    /* Modern Theme Toggle inside Navbar */
+    #docsify-darklight-theme {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 32px !important;
+      height: 32px !important;
+      margin: 0 10px 0 0 !important;
+      border-radius: 50% !important;
+      background: rgba(247, 147, 26, 0.15) !important;
+      border: 1px solid rgba(247, 147, 26, 0.4) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.2s ease-in-out !important;
+      cursor: pointer !important;
+      box-sizing: border-box !important;
+    }
+
+    #docsify-darklight-theme:hover {
+      transform: scale(1.1) rotate(15deg) !important;
+      background: rgba(247, 147, 26, 0.3) !important;
+      border-color: #f7931a !important;
+      box-shadow: 0 0 10px rgba(247, 147, 26, 0.5) !important;
+    }
+
+    #docsify-darklight-theme p,
+    #docsify-darklight-theme span,
+    #docsify-darklight-theme svg {
+      color: #f7931a !important;
+      fill: #f7931a !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: 15px !important;
+      line-height: 1 !important;
+    }
+
+>>>>>>> 3d16d52 (style: refactor navbar layout and styling with custom theme toggle integration)
     /* Navbar Dropdown styling (Dark Mode Default) */
     .app-nav li ul {
       background-color: #1e222b !important;
@@ -106,6 +181,7 @@
 
     .app-nav li ul li a:hover {
       background-color: rgba(247, 147, 26, 0.25) !important;
+<<<<<<< HEAD
       color: #ffffff !important;
     }
 
@@ -179,7 +255,23 @@
 
     body:not(.dark) .app-nav li ul li a:hover {
       background-color: #f7931a !important;
+=======
+>>>>>>> 3d16d52 (style: refactor navbar layout and styling with custom theme toggle integration)
       color: #ffffff !important;
+    }
+
+    /* Light Mode Dropdown Styling Override */
+    body.light .app-nav li ul,
+    body[data-theme="light"] .app-nav li ul {
+      background-color: #ffffff !important;
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    body.light .app-nav li ul li a,
+    body[data-theme="light"] .app-nav li ul li a {
+      color: #1e293b !important;
     }
   </style>
 </head>
